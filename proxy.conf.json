@@ -1,0 +1,7 @@
+{
+  "/flickr": {
+    "target": "https://www.flickr.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
