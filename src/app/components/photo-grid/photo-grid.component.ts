@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FlickrService } from '../../services/flickr.service';
+import { MealsService } from '../../services/meals.service';
+import { Meal } from '../../models/meal.model';
 
 @Component({
   selector: 'app-photo-grid',
@@ -10,29 +11,37 @@ import { FlickrService } from '../../services/flickr.service';
   templateUrl: './photo-grid.component.html',
   styleUrls: ['./photo-grid.component.css']
 })
-export class PhotoGridComponent {
+export class PhotoGridComponent implements OnInit {
 
-  photos: any[] = [];
+  meals: Meal[] = [];
   searchTerm = '';
-  hasSearched = false; // ✅ état de recherche
+  hasSearched = false;
 
-  constructor(private flickrService: FlickrService) {}
+  constructor(
+    private mealsService: MealsService,
+    private cdr: ChangeDetectorRef 
+  ) {}
 
-  search(): void {
-    const term = this.searchTerm.trim();
+  ngOnInit(): void {
+    this.fetchMeals('a'); 
+  }
 
-    if (!term) {
-      // champ vide → on vide tout
-      this.photos = [];
-      this.hasSearched = false;
-      return;
-    }
+  fetchMeals(term: string): void {
+    this.mealsService.searchMeals(term).subscribe({
+      next: (response: any) => {
+        this.meals = response.meals ?? [];
+        this.cdr.detectChanges(); 
+      },
+      error: () => {
+        this.meals = [];
+        this.cdr.detectChanges();
+      }
+    });
+  }
 
+  onSearchClick(): void {
     this.hasSearched = true;
-
-    this.flickrService.searchPhotosByTags(term)
-      .subscribe(data => {
-        this.photos = data.items;
-      });
+    const term = this.searchTerm.trim() || 'a';
+    this.fetchMeals(term);
   }
 }
