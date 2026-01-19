@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
-  imports: [],
+  standalone: true,
   templateUrl: './filters.component.html',
   styleUrl: './filters.component.css',
 })
-export class Filters {
+export class FiltersComponent {
 
+  @Output() countryChange = new EventEmitter<string>();
+
+  onCountrySelect(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    this.countryChange.emit(value);
+  }
 }

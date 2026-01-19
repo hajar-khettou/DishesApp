@@ -1,32 +1,11 @@
-<div class="top-bar">
-  <div class="logo">
-    <img src="/logo.png" alt="Logo" />
-  </div>
-
-  <div class="search-container">
-    <input
-      type="text"
-      placeholder="Search for a meal..."
-      [(ngModel)]="searchTerm"
-    />
-    <button (click)="onSearchClick()">Search</button>
-  </div>
-</div>
-
 <div class="grid">
   <div *ngFor="let meal of meals" class="card">
-    <img
-      [src]="meal.strMealThumb"
-      [alt]="meal.strMeal"
-      loading="lazy"
-    />
-    <h3 class="title">{{ meal.strMeal }}</h3>
-    <p class="origin">{{ meal.strArea }}</p>
+    <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}">
+    <h3>{{ meal.strMeal }}</h3>
+    <p>{{ meal.strArea }}</p>
   </div>
 </div>
 
-@if (hasSearched && meals.length === 0) {
-  <div class="empty">
-    <p>No meals found</p>
-  </div>
+@if (meals.length === 0) {
+  <p>Aucun résultat</p>
 }

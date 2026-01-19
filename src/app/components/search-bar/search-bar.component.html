@@ -1,1 +1,17 @@
-<p>search-bar works!</p>
+<div class="top-bar">
+  <div class="logo">
+    <img src="/logo.png" alt="Logo" />
+  </div>
+
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search for a meal..."
+      [(ngModel)]="searchTerm"
+    />
+
+    <button (click)="onSearchClick()">
+      Search
+    </button>
+  </div>
+</div>
