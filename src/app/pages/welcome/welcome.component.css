@@ -1,0 +1,87 @@
+.welcome-container {
+  height: 100vh;
+  background: linear-gradient(135deg, #fff5ef, #ffe3d3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 24px;
+}
+
+.welcome-logo {
+  width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: fadeDown 1.2s ease-out;
+  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.15));
+}
+
+h1 {
+  font-size: 48px;
+  color: #ff7a45;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+p {
+  font-size: 20px;
+  color: #444;
+  max-width: 600px;
+  line-height: 1.6;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.arrow-container {
+  margin-top: 40px;
+}
+
+.arrow-right {
+  font-size: 56px;
+  color: #ff7a45;
+  cursor: pointer;
+  animation: slideRight 1.4s infinite;
+}
+
+.arrow-right:hover {
+  color: #f4511e;
+}
+
+@keyframes slideRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(14px);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}

@@ -1,13 +1,1 @@
-<app-photo-grid></app-photo-grid>
-
-<app-search-bar
-  (search)="searchMeals($event)">
-</app-search-bar>
-
-<app-filters
-  (countryChange)="filterByCountry($event)">
-</app-filters>
-
-<app-photo-grid
-  [meals]="filteredMeals()">
-</app-photo-grid>
+<router-outlet></router-outlet>

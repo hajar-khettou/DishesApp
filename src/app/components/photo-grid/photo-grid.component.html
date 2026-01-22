@@ -1,11 +1,11 @@
 <div class="grid">
-  <div *ngFor="let meal of meals" class="card">
-    <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}">
+  <div
+    *ngFor="let meal of meals"
+    class="card"
+    (click)="goToMeal(meal.idMeal)"
+  >
+    <img [src]="meal.strMealThumb" />
     <h3>{{ meal.strMeal }}</h3>
     <p>{{ meal.strArea }}</p>
   </div>
 </div>
-
-@if (meals.length === 0) {
-  <p>Aucun résultat</p>
-}

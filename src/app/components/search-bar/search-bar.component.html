@@ -1,5 +1,5 @@
 <div class="top-bar">
-  <div class="logo">
+  <div class="logo" routerLink="/">
     <img src="/logo.png" alt="Logo" />
   </div>
 
@@ -8,10 +8,14 @@
       type="text"
       placeholder="Search for a meal..."
       [(ngModel)]="searchTerm"
+      (keyup.enter)="onSearchClick()"
     />
 
     <button (click)="onSearchClick()">
       Search
     </button>
   </div>
+    <app-filters
+      (countryChange)="onCountryChange($event)">
+    </app-filters>
 </div>

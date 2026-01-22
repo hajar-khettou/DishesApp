@@ -7,11 +7,30 @@ import { Observable } from 'rxjs';
 })
 export class MealsService {
 
-  private API_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+   private API = 'https://www.themealdb.com/api/json/v1/1';
 
   constructor(private http: HttpClient) {}
 
-  searchMeals(term: string): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}${term}`);
+  searchMeals(term: string) {
+    return this.http.get<any>(`${this.API}/search.php?s=${term}`);
   }
+
+  getAreas() {
+  return this.http.get<any>(
+    'https://www.themealdb.com/api/json/v1/1/list.php?a=list'
+  );
 }
+
+  filterByArea(area: string) {
+  return this.http.get<any>(
+    `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`
+  );
+}
+
+  getMealById(id: string) {
+  return this.http.get<any>(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  );
+}
+}
+
