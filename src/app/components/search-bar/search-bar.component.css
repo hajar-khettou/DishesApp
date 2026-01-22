@@ -1,14 +1,15 @@
 .top-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;             
-  padding: 10px;
+  justify-content: flex-start;  
+  flex-wrap: nowrap;
+  gap: 16px;
+  padding: 10px 20px;
 }
 
 .logo {
   display: flex;
+  cursor: pointer;
   align-items: center;
   gap: 10px;
   font-size: 22px;
@@ -28,7 +29,7 @@
 }
 
 .search-container input {
-  width: 420px;           
+  width: 4500px;           
   max-width: 50vw;
   padding: 14px 18px;
   font-size: 16px;
@@ -38,7 +39,7 @@
 }
 
 .search-container button {
-  padding: 14px 22px;
+  padding: 14px 32px;
   border-radius: 999px;
   border: none;
   background-color: #ff7a45;

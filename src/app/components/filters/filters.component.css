@@ -1,0 +1,90 @@
+.filters {
+  position: relative;
+  display: inline-block;
+  gap: 16px;
+  margin-left: 87px;
+}
+
+.filters select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 14px 56px 14px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 122, 69, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 245, 240, 0.9)
+  );
+
+  color: #333;
+  cursor: pointer;
+  outline: none;
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 rgba(255, 122, 69, 0);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.filters::after {
+  content: "⌄";
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+
+  font-size: 18px;
+  font-weight: 900;
+  color: #ff7a45;
+
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.filters select:hover {
+  transform: translateY(-2px);
+  border-color: #ff7a45;
+
+  box-shadow:
+    0 12px 28px rgba(255, 122, 69, 0.25),
+    inset 0 0 0 rgba(255, 122, 69, 0);
+}
+
+.filters select:focus {
+  background: white;
+  border-color: #ff7a45;
+
+  box-shadow:
+    0 0 0 4px rgba(255, 122, 69, 0.25),
+    0 16px 40px rgba(255, 122, 69, 0.35);
+}
+
+.filters select:focus + * ,
+.filters select:focus-visible + * {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.filters option {
+  padding: 12px;
+  font-size: 14px;
+  background: white;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .filters select {
+    width: 100%;
+  }
+}
