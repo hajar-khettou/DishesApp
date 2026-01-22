@@ -1,6 +1,8 @@
-<select (change)="onCountrySelect($event)">
-  <option value="">Tous les pays</option>
-  <option value="Turkish">Turkish</option>
-  <option value="American">American</option>
-  <option value="French">French</option>
-</select>
+<div class="filters">
+  <select (change)="onCountrySelect($event)">
+    <option value="">All Countries</option>
+    <option *ngFor="let area of areas" [value]="area">
+      {{ area }}
+    </option>
+  </select>
+</div>

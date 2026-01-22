@@ -1,0 +1,92 @@
+<app-search-bar
+  (search)="searchMeals($event)"
+  (countryChange)="filterByCountry($event)">
+</app-search-bar>
+
+<app-photo-grid
+  [meals]="filteredMeals()">
+</app-photo-grid>
+
+<div class="letters-bar">
+
+  <button
+    *ngFor="let letter of visibleLetters"
+    class="letter-btn"
+    (click)="loadMealsByLetter(letter)">
+    {{ letter }}
+  </button>
+
+  <button
+  *ngIf="!showAllLetters"
+  class="letter-btn dots"
+  (click)="toggleLetters()">
+  ...
+</button>
+
+  <div *ngIf="showAllLetters" class="extra-letters">
+    <button
+      *ngFor="let letter of hiddenLetters"
+      class="letter-btn"
+      (click)="loadMealsByLetter(letter)">
+      {{ letter }}
+    </button>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <p>© 2026 KitchenGuide </p>
+      <p>Proudly built By Epita Students </p>
+    </div>
+
+    <div class="footer-center">
+      <img
+        src="/source.png"
+        class="footer-icon"
+        alt="Source"
+      />
+
+      <a href="https://www.themealdb.com" target="_blank">
+        https://www.themealdb.com
+      </a>
+      <a href="https://www.simplyrecipes.com" target="_blank">
+        https://www.simplyrecipes.com
+      </a>
+    </div>
+
+    <div class="footer-right">
+      <a
+      href="https://www.themealdb.com/terms_of_use.php"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-link"
+      >
+      Terms
+    </a>
+      <a href="https://www.themealdb.com/privacy_policy.php"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-link"
+      >
+      Privacy
+    </a>
+      <a href="https://www.themealdb.com/contact.php"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-link"
+      >
+      Contact
+    </a>
+      <a href="https://www.themealdb.com/refunds.php"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-link"
+      >
+      Refunds</a>
+    </div>
+
+  </div>
+</footer>
