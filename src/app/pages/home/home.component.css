@@ -59,6 +59,60 @@
   color: #ff7a45;
 }
 
+.letter-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.letters-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding-left: 53px;
+
+}
+
+.letter-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid #ff7a45;
+  background: white;
+  color: #ff7a45;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.letter-btn:hover {
+  background: #ff7a45;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.dots {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.extra-letters {
+  display: flex;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-8px); }

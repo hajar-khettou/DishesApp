@@ -15,6 +15,12 @@ export class MealsService {
     return this.http.get<any>(`${this.API}/search.php?s=${term}`);
   }
 
+  getMealsByFirstLetter(letter: string) {
+  return this.http.get<any>(
+    `${this.API}/search.php?f=${letter}`
+  );
+  }
+
   getAreas() {
   return this.http.get<any>(
     'https://www.themealdb.com/api/json/v1/1/list.php?a=list'

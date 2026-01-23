@@ -6,6 +6,34 @@
 <app-photo-grid
   [meals]="filteredMeals()">
 </app-photo-grid>
+
+<div class="letters-bar">
+
+  <button
+    *ngFor="let letter of visibleLetters"
+    class="letter-btn"
+    (click)="loadMealsByLetter(letter)">
+    {{ letter }}
+  </button>
+
+  <button
+  *ngIf="!showAllLetters"
+  class="letter-btn dots"
+  (click)="toggleLetters()">
+  ...
+</button>
+
+  <div *ngIf="showAllLetters" class="extra-letters">
+    <button
+      *ngFor="let letter of hiddenLetters"
+      class="letter-btn"
+      (click)="loadMealsByLetter(letter)">
+      {{ letter }}
+    </button>
+  </div>
+
+</div>
+
 <footer class="footer">
   <div class="footer-container">
 
