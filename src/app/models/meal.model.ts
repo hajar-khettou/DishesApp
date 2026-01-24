@@ -4,4 +4,5 @@ export interface Meal {
   strMealThumb: string;
   strArea: string;
   strCategory?: string;
+  strInstructions?: string;
 }

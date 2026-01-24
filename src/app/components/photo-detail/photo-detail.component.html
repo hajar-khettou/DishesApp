@@ -1,1 +1,33 @@
-<p>photo-detail works!</p>
+<div *ngIf="meal() as m" class="detail">
+
+  <h1>{{ m.strMeal }}</h1>
+
+  <img
+    [src]="m.strMealThumb"
+    [alt]="m.strMeal"
+  />
+
+  <p><strong>Category:</strong> {{ m.strCategory }}</p>
+  <p><strong>Area:</strong> {{ m.strArea }}</p>
+
+  <h3>Instructions</h3>
+  <p>{{ m.strInstructions }}</p>
+
+  <!-- INGREDIENTS -->
+  <h3>Ingredients</h3>
+
+  <div class="ingredients">
+    <div
+      class="ingredient-card"
+      *ngFor="let ing of getIngredients(m)"
+    >
+      <img
+        [src]="'https://www.themealdb.com/images/ingredients/' + ing.name + '.png'"
+        [alt]="ing.name"
+      />
+      <p>{{ ing.name }}</p>
+      <span>{{ ing.measure }}</span>
+    </div>
+  </div>
+
+</div>
