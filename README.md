@@ -1,13 +1,25 @@
-# FlickrPhotos
+# KitchenGuide
+
+KitchenGuide is a modern Angular application that helps users discover meals from all around the world.
+The app is powered by **TheMealDB API** and offers search, filtering, and alphabetical navigation.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+
+## Features
+
+- Search meals by name
+- Filter meals by country (area)
+- Browse meals by first letter (A–Z)
+- Responsive grid with meal cards
+- Meal detail page with ingredients & instructions
+- Fast UI using Angular Signals & Standalone Components
 
 ## Development server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+ng serve or npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -41,7 +53,7 @@ This will compile your project and store the build artifacts in the `dist/` dire
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
 ```bash
-ng test
+npm run test:watch
 ```
 
 ## Running end-to-end tests
